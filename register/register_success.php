@@ -60,7 +60,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="success-icon">✓</div>
         <h1 class="success-message">Registrasi Berhasil!</h1>
         <p>Akun Anda telah berhasil dibuat. Silakan login untuk melanjutkan.</p>
-        <a href="C:\xampp\htdocs\project-asal\login.html" class="login-link">Login Sekarang</a>
+        <a href="..\login.php" class="login-link">Login Sekarang</a>
     </div>
 </body>
 </html>

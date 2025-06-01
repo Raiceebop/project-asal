@@ -157,10 +157,18 @@ if (isset($errors) && !empty($errors)) {
                     I agree to abide by WebiVerse
                     <a href="#">Terms of Service</a> and its <a href="#">Privacy Policy</a>.
                 </div>
+                <center>
+                    <p><i>Sudah Punya Akun?</i></p>
+                </center>
             </form>
+            <div class="register-forget opacity">
+                <center>
+                    <a href="../login.php">LOGIN</a> <!-- Link untuk menuju halaman login -->
+                </center>               
+            </div>
         </div>
         <div class="side-image">
-            <img src="gambar1.jpg" alt="Online presentation">
+            <img src="..\images\gambar1.jpg" alt="Online presentation">
         </div>
     </div>
 
