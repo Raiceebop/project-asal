@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Bulan Mei 2025 pada 10.27
+-- Waktu pembuatan: 09 Jun 2025 pada 06.05
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_projectasal`
+-- Database: `being_us`
 --
 
 -- --------------------------------------------------------
@@ -30,17 +30,20 @@ SET time_zone = "+00:00";
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `password_hash` varchar(255) NOT NULL,
-  `role` varchar(20) NOT NULL DEFAULT 'peserta',
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `role` enum('admin','visitor') NOT NULL DEFAULT 'visitor',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password_hash`, `role`, `created_at`) VALUES
-(1, 'gilangatha', '$2y$10$xDZ.m.yBCQYG1GrGqJwnGe3bDv1uWbDN4opoQEj3FJKQ6K2dcg.7a', 'peserta', '2025-05-30 08:17:58');
+INSERT INTO `users` (`id`, `username`, `email`, `password_hash`, `role`, `created_at`, `updated_at`) VALUES
+(1, 'gilang', 'gilang2024@gmail.com', '$2y$10$WmEMDKgWQyhBpnCsXmnby.UskfJ47mS2xpw2clGU2tUZfsAF251s2', 'visitor', '2025-06-07 11:52:08', '2025-06-07 11:52:08'),
+(2, 'Four', 'arianandapanduaji044@gmail.com', '$2y$10$RQT6gUbGhASi4fKo9flt/O2J/EKcYlQiQtXeZDnBI1irmK/xfeGXy', 'visitor', '2025-06-07 12:01:32', '2025-06-07 12:01:32');
 
 --
 -- Indexes for dumped tables
@@ -51,7 +54,8 @@ INSERT INTO `users` (`id`, `username`, `password_hash`, `role`, `created_at`) VA
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -61,7 +65,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
