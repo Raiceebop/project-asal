@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login/login.html');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -153,7 +162,7 @@
         <nav id="menu">
           <ul>
             <li><a href="index.html">Homepage</a></li>
-            <li><a href="About.html">About Us</a></li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="base.html">Our Base!</a></li>
             <li>
               <span class="opener">Dropdown One</span>
